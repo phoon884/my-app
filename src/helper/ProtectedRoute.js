@@ -12,24 +12,24 @@ function ProtectedRoute({ component: Component, ...restOfProps }) {
   useEffect(() => {
     setToken(null);
     CheckToken()
-      .then(res => setToken(res))
-      .catch(setToken(false))
-    },[])
-    
+      .then(res => { setToken(res); console.log("in then", res); })
+  }, [])
   console.log(token);
   if (token === null) {
-    return <Loading Loading={Loading}/> // something that indicates you are waiting
+    return <Loading Loading={Loading} /> // something that indicates you are waiting
   }
+  else {
+    console.log(token);
+    return (
+      <Route
+        {...restOfProps}
+        render={(props) =>
+          token ? <Component {...props} /> : <Redirect to="/login/" />
+        }
 
-  return (
-    <Route
-      {...restOfProps}
-      render={(props) =>
-        token ? <Component {...props} /> : <Redirect to="/login/" />
-      }
-
-    />
-  );
+      />
+    );
+  }
 }
 
 

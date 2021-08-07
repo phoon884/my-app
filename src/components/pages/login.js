@@ -5,24 +5,19 @@ import { Redirect } from "react-router";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
+  const [login, setLogin] = useState(null);
   //const [done , setDone] = useState(undefined)
+
   const Login_Action = (event) => {
     event.preventDefault();
 
     const user = {
       email: username,
       password: password,
-    };
-    setRedirect(async () => {
-      let a = await ValidateLogin(user)
-      console.log(a);
-      return a;
-    })
-
+    }; 
+    ValidateLogin(user).then(res => {setLogin(res)})
   }
-  console.log(redirect);
-  if (redirect) {
+  if (login) {
     return (<Redirect to="/" />)
   }
   return (

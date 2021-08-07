@@ -1,4 +1,4 @@
-import React ,{useEffect} from 'react';
+import React  from 'react';
 //import Navbar from './components/Navbar';
 import {BrowserRouter  ,Route} from 'react-router-dom';
 import login from './components/pages/login';

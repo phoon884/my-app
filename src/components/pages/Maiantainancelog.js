@@ -1,6 +1,7 @@
 import React from 'react'
-//import { CheckToken } from '../../helper/RequestAction'
+import { MaintenancelogSubmit } from '../../helper/RequestAction'
 import Navbar from '../Navbar'
+
 
 
 function Maintenancelog() {
@@ -8,7 +9,11 @@ function Maintenancelog() {
         return (
             <>
             <Navbar/>
-            <div>maintenance log</div>
+            <div><p>maintenance log</p>
+                <button onClick={MaintenancelogSubmit}>click me</button>
+            
+            </div>
+
             </>
         )
     }
