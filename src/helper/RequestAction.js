@@ -59,14 +59,7 @@ async function ValidateLogin(user) {
     })
   return result;
 }
-async function MaintenancelogSubmit() {
-  let data = {
-    "roomid": "A215",
-    "code": "FAC",
-    "date": "8-6-2021",
-    "cost": "2000",
-    "note": ""
-  }
+async function MaintenancelogSubmit(data) {
   let result = null;
   await axios
     .post(`http://localhost:5000/maintenance_log/submit`, data, {
@@ -75,11 +68,11 @@ async function MaintenancelogSubmit() {
     })
     .then((res) => {
       console.log(res);
-      result = true
+      result = res
     })
     .catch((err) => {
       console.log(err.response.data);
-      result = false
+      result = err.response.data
     })
   return result;
 }

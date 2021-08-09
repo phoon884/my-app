@@ -16,6 +16,7 @@ function ProtectedRoute({ component: Component, ...restOfProps }) {
   }, [])
   console.log(token);
   if (token === null) {
+    console.log("hello");
     return <Loading Loading={Loading} /> // something that indicates you are waiting
   }
   else {

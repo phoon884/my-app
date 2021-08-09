@@ -156,12 +156,12 @@
     outline: none;
     cursor: pointer;
     display: inline-block;
-    background: var(--primary-dark);
+    background: var(--grey-dark);
     transition: color .15s ease, background-color .15s ease;
   }
   
   .btn:hover {
-    background: var(--primary-dark);
+    background: var(--black);
   }
   
   .btn--secondary {

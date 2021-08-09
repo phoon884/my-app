@@ -1,6 +1,6 @@
 import React  from 'react';
 //import Navbar from './components/Navbar';
-import {BrowserRouter  ,Route} from 'react-router-dom';
+import {BrowserRouter  ,Route,Switch} from 'react-router-dom';
 import login from './components/pages/login';
 import './App.css';
 import dashboard from './components/pages/dashboard';
@@ -17,12 +17,12 @@ function App() {
         return (
             <>
                 <BrowserRouter>
-
+                        <Switch>
                             <Route path='/login' exact component={login}/>
                             <ProtectedRoute path='/' exact component={dashboard}/>
                             <ProtectedRoute path='/maiantainance_log' exact component={Maiantainancelog}/>
                          
-                    
+                        </Switch>
                 </BrowserRouter>
             </>
         );
