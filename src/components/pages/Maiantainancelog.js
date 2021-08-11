@@ -102,7 +102,7 @@ function Maintenancelog() {
 
                    {error ? <p className="error">{error}</p> : null}
 
-                    <input type="submit" value="Log In" className="btn"></input>
+                    <input type="submit" value="Submit" className="btn"></input>
                 </form>
             </div>
 

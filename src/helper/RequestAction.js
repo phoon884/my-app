@@ -64,7 +64,7 @@ async function MaintenancelogSubmit(data) {
   await axios
     .post(`http://localhost:5000/maintenance_log/submit`, data, {
       withCredentials: true,
-      headers:{"X-CSRF-TOKEN": getCookie("csrf_access_token")}
+      headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
     .then((res) => {
       console.log(res);
@@ -76,4 +76,40 @@ async function MaintenancelogSubmit(data) {
     })
   return result;
 }
-export { Signout, CheckToken, ValidateLogin, MaintenancelogSubmit };
+
+async function WaterBillSubmit(data) {
+  let result = null;
+  await axios
+    .post(`http://localhost:5000/waterbill/input`, data, {
+      withCredentials: true,
+      headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
+    })
+    .then((res) => {
+      console.log(res);
+      result = res
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      result = err.response.data
+    })
+  return result;
+}
+
+async function ElectricBillSubmit(data) {
+  let result = null;
+  await axios
+    .post(`http://localhost:5000/electricbill/input`, data, {
+      withCredentials: true,
+      headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
+    })
+    .then((res) => {
+      console.log(res);
+      result = res
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      result = err.response.data
+    })
+  return result;
+}
+export { Signout, CheckToken, ValidateLogin, MaintenancelogSubmit, WaterBillSubmit, ElectricBillSubmit };

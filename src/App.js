@@ -6,7 +6,8 @@ import './App.css';
 import dashboard from './components/pages/dashboard';
 import ProtectedRoute from './helper/ProtectedRoute';
 import Maiantainancelog from './components/pages/Maiantainancelog';
-
+import ElectricBill from './components/pages/electricbill';
+import WaterBill from './components/pages/waterbilll';
 
 function App() {
     // useEffect(() => {
@@ -21,6 +22,8 @@ function App() {
                             <Route path='/login' exact component={login}/>
                             <ProtectedRoute path='/' exact component={dashboard}/>
                             <ProtectedRoute path='/maiantainance_log' exact component={Maiantainancelog}/>
+                            <ProtectedRoute path='/electric_bill' exact component={ElectricBill}/>
+                            <ProtectedRoute path='/water_bill' exact component={WaterBill}/>
                          
                         </Switch>
                 </BrowserRouter>
