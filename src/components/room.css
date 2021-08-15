@@ -14,13 +14,13 @@
 }
 
 .room--Monthly {
-  background-color: rgb(40, 104, 50);
+  background-color: rgba(40, 104, 50,0.5);
 }
 
 .room--Daily {
-  background-color: rgb(31, 95, 95);
+  background-color: rgba(31, 95, 95,0.5);
 }
 
 .room--Annually {
-  background-color: rgb(134, 141, 73)
+  background-color: rgba(134, 141, 73,0.5)
 }

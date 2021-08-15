@@ -7,10 +7,11 @@ export default function Popup(props) {
         <div className="popup">
             <div className="popup-inner">
                 <button className="close-btn" onClick={() => props.setTrigger(false)}>close</button>
-                <p>Room Number:</p>
-                <p>status:</p>
-                <p>rent:</p>
-                <p>deposit:</p>
+                <p>Room Number: {props.data._id}</p>
+                <p>status: {props.data.status}</p>
+                <p>rent: {props.data.rent}</p>
+                <p>deposit: {props.data.deposit}</p>
+                {props.data.guest !== "" && <p>guest: {props.data.guest._id}</p>}
             </div>
 
         </div>

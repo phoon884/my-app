@@ -43,7 +43,7 @@ function Navbar() {
                             className='nav-links'
                             onClick={closeMobileMenu}
                         >
-                            Maiantainance log
+                            Maintainance log
                         </Link>
                     </li>
                     <li className='nav-item'>
