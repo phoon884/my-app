@@ -1,0 +1,26 @@
+.room {
+  position: relative;
+  margin: 11px 30px 10px;
+  top: 10px;
+  left: 20px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #444444;
+  border-radius: 8px;
+}
+
+.room--Empty{
+  background-color: rgb(216, 216, 216);
+}
+
+.room--Monthly {
+  background-color: rgb(40, 104, 50);
+}
+
+.room--Daily {
+  background-color: rgb(31, 95, 95);
+}
+
+.room--Annually {
+  background-color: rgb(134, 141, 73)
+}

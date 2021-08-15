@@ -38,7 +38,7 @@ function WaterBill() {
         onSubmit: values => {
             setError(null)
             let payload = {}
-            if (values && values.floor && values.floor === '1') {
+            if (values && values.floor) {
                 payload.date = values.date;
                 payload.data = [];
                 for (const key in values) {

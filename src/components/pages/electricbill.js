@@ -38,7 +38,7 @@ function ElectricBill() {
         onSubmit: values => {
             setError(null)
             let payload = {}
-            if (values && values.floor && values.floor === '1') {
+            if (values && values.floor) {
                 payload.date = values.date;
                 payload.data = [];
                 for (const key in values) {
@@ -50,6 +50,7 @@ function ElectricBill() {
                         room.roomid = values.building + values.floor + key.replace("r", "")
                         room.unit = values[key]
                         payload.data.push(room)
+                        console.log(payload);
                     }
                 }
             }

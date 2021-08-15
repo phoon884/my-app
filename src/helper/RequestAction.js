@@ -112,4 +112,25 @@ async function ElectricBillSubmit(data) {
     })
   return result;
 }
-export { Signout, CheckToken, ValidateLogin, MaintenancelogSubmit, WaterBillSubmit, ElectricBillSubmit };
+
+
+async function GuestRetrieveData(data) {
+  let result = null;
+  await axios
+    .post(`http://localhost:5000/guest/retrieve_data`, data, {
+      withCredentials: true,
+      headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
+    })
+    .then((res) => {
+      console.log(res);
+      result = res
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      result = err.response.data
+    })
+  return result;
+}
+
+
+export { Signout, CheckToken, ValidateLogin, MaintenancelogSubmit, WaterBillSubmit, ElectricBillSubmit, GuestRetrieveData };

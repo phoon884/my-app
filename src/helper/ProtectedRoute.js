@@ -12,7 +12,7 @@ function ProtectedRoute({ component: Component, ...restOfProps }) {
   useEffect(() => {
     setToken(null);
     CheckToken()
-      .then(res => { setToken(res); console.log("in then", res); })
+      .then(res => { setToken(res)})
   }, [])
   console.log(token);
   if (token === null) {
