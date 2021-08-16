@@ -150,5 +150,23 @@ async function GuestRetrieveRoom(data) {
   return result;
 }
 
+async function GuestCheckOut(data) {
+  let result = null;
+  await axios
+    .post(`http://localhost:5000/guest/remove_guest`, data, {
+      withCredentials: true,
+      headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
+    })
+    .then((res) => {
+      console.log(res);
+      result = res
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      result = err.response.data
+    })
+  return result;
+}
 
-export { Signout, CheckToken, ValidateLogin, MaintenancelogSubmit, WaterBillSubmit, ElectricBillSubmit, GuestRetrieveData, GuestRetrieveRoom};
+
+export { Signout, CheckToken, ValidateLogin, MaintenancelogSubmit, WaterBillSubmit, ElectricBillSubmit, GuestRetrieveData, GuestRetrieveRoom, GuestCheckOut };
