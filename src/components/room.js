@@ -15,6 +15,14 @@ export const Room = ({ RoomObj }) => {
                     setData(res.data.data);
                     setButton(true);
                 }
+                else {
+                    if (res.error) {     
+                        alert(res.error)
+                    }
+                    if (res.msg) {
+                        alert(res.msg)
+                    }
+                }
             })}
         >
             {RoomObj._id}

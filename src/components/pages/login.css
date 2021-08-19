@@ -65,6 +65,14 @@
     justify-content: center;
     display: flex;
   }
+  .card-wrapper2 {
+    margin: 0 auto;
+    padding: 10px 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 15%;
+    display: flex;
+  }
   
   .card {
     margin: 0 30px 60px;

@@ -1,5 +1,6 @@
 import React from 'react';
 import './popup.css'
+import { Link } from 'react-router-dom';
 import {GuestCheckOut} from '../helper/RequestAction'
 
 
@@ -19,7 +20,7 @@ export default function Popup(props) {
                 }</p>}
                 {props.data.guest !== "" && <button className="checkout-btn" onClick={() => GuestCheckOut({ "roomid": props.data._id }).then(res => { if (res.status === 200) { window.location.reload() } })
                 }>Check Out</button>}
-                {props.data.guest === "" && <button className="checkout-btn" onClick={() => console.log("hello")}>Hello</button>}
+                {props.data.guest === "" && <button className="checkout-btn"><Link to={"/check-in/"+props.data._id} className='Links'>Check-In</Link></button>}
             </div>
         </div>
     ) : "";

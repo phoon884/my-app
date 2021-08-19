@@ -168,5 +168,59 @@ async function GuestCheckOut(data) {
   return result;
 }
 
+async function GuestCheckIn(data) {
+  let result = null;
+  await axios
+    .post(`http://localhost:5000/guest/add_guest`, data, {
+      withCredentials: true,
+      headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
+    })
+    .then((res) => {
+      console.log(res);
+      result = res
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      result = err.response.data
+    })
+  return result;
+}
 
-export { Signout, CheckToken, ValidateLogin, MaintenancelogSubmit, WaterBillSubmit, ElectricBillSubmit, GuestRetrieveData, GuestRetrieveRoom, GuestCheckOut };
+
+async function RetrievePaymentDue() {
+  let result = null;
+  await axios
+    .get(`http://localhost:5000/guest/retrieve_payment_due`, {
+      withCredentials: true,
+      headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
+    })
+    .then((res) => {
+      console.log(res);
+      result = res
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      result = err.response.data
+    })
+  return result;
+}
+
+
+async function RemovePaymentDue(data) {
+  let result = null;
+  await axios
+    .post(`http://localhost:5000/guest/remove_payment_due`, data, {
+      withCredentials: true,
+      headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
+    })
+    .then((res) => {
+      console.log(res);
+      result = res
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      result = err.response.data
+    })
+  return result;
+}
+export { Signout, CheckToken, ValidateLogin, MaintenancelogSubmit, WaterBillSubmit, ElectricBillSubmit, GuestRetrieveData, GuestRetrieveRoom, GuestCheckOut, GuestCheckIn, RetrievePaymentDue, RemovePaymentDue };

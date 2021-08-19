@@ -8,36 +8,61 @@ import { useFormik } from 'formik'
 function Dashboard() {
     const formik = useFormik({
         initialValues: {
-            building: 'A'
+            building: 'A',
+            floor: '1'
         }
     })
     const [status, setStatus] = useState(null)
     useEffect(() => {
         setStatus(null)
-        const value = { building: formik.values.building }
-        GuestRetrieveData(value).then(data => {
+        GuestRetrieveData(formik.values).then(data => {
             if (data.status === 200) {
                 setStatus(data.data.data)
             }
+            else {
+                if (data.error) {
+                    alert(data.error)
+                }
+                if (data.msg) {
+                    alert(data.msg)
+                }
+            }
         })
-    }, [formik.values.building])
+    }, [formik.values])
     if (status === null) {
         return <Loading Loading={Loading} />
     }
     return (
         <>
             <Navbar />
-            <div>dashboard</div>
-             <select name="building"
-                        id="building"
-                        onChange={formik.handleChange}
-                        value={formik.values.building}
-                        required>
+            <div className="card-wrapper2">
+                <div>Dashboard</div>
+                <select name="building"
+                    id="building"
+                    className="field"
+                    onChange={formik.handleChange}
+                    value={formik.values.building}
+                    required>
 
-                        <option value="A">A</option>
-                        <option value="B">B</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
 
-                    </select>
+                </select>
+                <select name="floor"
+                    id="floor"
+                    className="field"
+                    onChange={formik.handleChange}
+                    value={formik.values.floor}
+                    required>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+            </div>
             <ul>
                 {status.map(room => (
                     <Room key={room._id} RoomObj={room} />

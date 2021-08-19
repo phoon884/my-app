@@ -60,7 +60,15 @@ function Navbar() {
                             Electric Bill
                         </Link>
                     </li>
-
+                    <li className='nav-item'>
+                        <Link
+                            to='/payment_due'
+                            className='nav-links'
+                            onClick={closeMobileMenu}
+                        >
+                            Payment Due
+                        </Link>
+                    </li>
                     <li>
                         <Link
                             to='/login'

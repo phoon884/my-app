@@ -1,0 +1,13 @@
+
+   .container {
+    margin: 0 auto;
+    padding: 30px 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+    border-bottom: 1px dashed #aaa;
+  }
+    .content {
+    display: block;
+    white-space: pre;
+  }
