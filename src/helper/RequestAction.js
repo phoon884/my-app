@@ -9,7 +9,7 @@ function getCookie(name) {
 async function CheckToken() {
   let result = null;
   await axios
-    .get(`http://192.168.1.103/api/protected`,
+    .get(`https://apartment-system1.herokuapp.com/api/protected`,
       { "withCredentials": true }
     )
     .then((res) => {
@@ -29,7 +29,7 @@ async function CheckToken() {
 async function Signout() {
 
   await axios
-    .get(`http://192.168.1.103/api/user/signout`,
+    .get(`https://apartment-system1.herokuapp.com/api/user/signout`,
       { "withCredentials": true }
     )
     .then((res) => {
@@ -48,7 +48,7 @@ async function Signout() {
 async function ValidateLogin(user) {
   let result = null;
   await axios
-    .post(`http://192.168.1.103/api/user/login`, user, {
+    .post(`https://apartment-system1.herokuapp.com/api/user/login`, user, {
       withCredentials: true,
     })
     .then((res) => {
@@ -62,7 +62,7 @@ async function ValidateLogin(user) {
 async function MaintenancelogSubmit(data) {
   let result = null;
   await axios
-    .post(`http://192.168.1.103/api/maintenance_log/submit`, data, {
+    .post(`https://apartment-system1.herokuapp.com/api/maintenance_log/submit`, data, {
       withCredentials: true,
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
@@ -80,7 +80,7 @@ async function MaintenancelogSubmit(data) {
 async function WaterBillSubmit(data) {
   let result = null;
   await axios
-    .post(`http://192.168.1.103/api/waterbill/input`, data, {
+    .post(`https://apartment-system1.herokuapp.com/api/waterbill/input`, data, {
       withCredentials: true,
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
@@ -98,7 +98,7 @@ async function WaterBillSubmit(data) {
 async function ElectricBillSubmit(data) {
   let result = null;
   await axios
-    .post(`http://192.168.1.103/api/electricbill/input`, data, {
+    .post(`https://apartment-system1.herokuapp.com/api/electricbill/input`, data, {
       withCredentials: true,
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
@@ -117,7 +117,7 @@ async function ElectricBillSubmit(data) {
 async function GuestRetrieveData(data) {
   let result = null;
   await axios
-    .post(`http://192.168.1.103/api/guest/retrieve_data`, data, {
+    .post(`https://apartment-system1.herokuapp.com/api/guest/retrieve_data`, data, {
       withCredentials: true,
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
@@ -135,7 +135,7 @@ async function GuestRetrieveData(data) {
 async function GuestRetrieveRoom(data) {
   let result = null;
   await axios
-    .post(`http://192.168.1.103/api/guest/retrieve_room`, data, {
+    .post(`https://apartment-system1.herokuapp.com/api/guest/retrieve_room`, data, {
       withCredentials: true,
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
@@ -153,7 +153,7 @@ async function GuestRetrieveRoom(data) {
 async function GuestCheckOut(data) {
   let result = null;
   await axios
-    .post(`http://192.168.1.103/api/guest/remove_guest`, data, {
+    .post(`https://apartment-system1.herokuapp.com/api/guest/remove_guest`, data, {
       withCredentials: true,
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
@@ -171,7 +171,7 @@ async function GuestCheckOut(data) {
 async function GuestCheckIn(data) {
   let result = null;
   await axios
-    .post(`http://192.168.1.103/api/guest/add_guest`, data, {
+    .post(`https://apartment-system1.herokuapp.com/api/guest/add_guest`, data, {
       withCredentials: true,
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
@@ -190,7 +190,7 @@ async function GuestCheckIn(data) {
 async function RetrievePaymentDue() {
   let result = null;
   await axios
-    .get(`http://192.168.1.103/api/guest/retrieve_payment_due`, {
+    .get(`https://apartment-system1.herokuapp.com/api/guest/retrieve_payment_due`, {
       withCredentials: true,
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
@@ -209,7 +209,7 @@ async function RetrievePaymentDue() {
 async function RemovePaymentDue(data) {
   let result = null;
   await axios
-    .post(`http://192.168.1.103/api/guest/remove_payment_due`, data, {
+    .post(`https://apartment-system1.herokuapp.com/api/guest/remove_payment_due`, data, {
       withCredentials: true,
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
