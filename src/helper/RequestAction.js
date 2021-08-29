@@ -5,6 +5,17 @@ function getCookie(name) {
   const parts = value.split(`; ${name}=`);
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function setCSRFCookie(res){
+  if("csrf_token" in res.data){
+    setCookie("csrf_access_token",res.data.csrf_token,1)
+  }
+}
 
 async function CheckToken() {
   let result = null;
@@ -15,6 +26,7 @@ async function CheckToken() {
     .then((res) => {
       //console.log("res.data.status:", res.data)
       if (res.data.status === "success") {
+        setCSRFCookie(res)
         result = true
       }
     })
@@ -52,6 +64,7 @@ async function ValidateLogin(user) {
       withCredentials: true,
     })
     .then((res) => {
+      setCSRFCookie(res)
       result = true
     })
     .catch((err) => {
@@ -67,6 +80,7 @@ async function MaintenancelogSubmit(data) {
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
     .then((res) => {
+      setCSRFCookie(res)
       console.log(res);
       result = res
     })
@@ -85,6 +99,7 @@ async function WaterBillSubmit(data) {
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
     .then((res) => {
+      setCSRFCookie(res)
       console.log(res);
       result = res
     })
@@ -103,6 +118,7 @@ async function ElectricBillSubmit(data) {
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
     .then((res) => {
+      setCSRFCookie(res)
       console.log(res);
       result = res
     })
@@ -122,6 +138,7 @@ async function GuestRetrieveData(data) {
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
     .then((res) => {
+      setCSRFCookie(res)
       console.log(res);
       result = res
     })
@@ -140,6 +157,7 @@ async function GuestRetrieveRoom(data) {
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
     .then((res) => {
+      setCSRFCookie(res)
       console.log(res);
       result = res
     })
@@ -158,6 +176,7 @@ async function GuestCheckOut(data) {
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
     .then((res) => {
+      setCSRFCookie(res)
       console.log(res);
       result = res
     })
@@ -176,6 +195,7 @@ async function GuestCheckIn(data) {
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
     .then((res) => {
+      setCSRFCookie(res)
       console.log(res);
       result = res
     })
@@ -195,6 +215,7 @@ async function RetrievePaymentDue() {
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
     .then((res) => {
+      setCSRFCookie(res)
       console.log(res);
       result = res
     })
@@ -214,6 +235,7 @@ async function RemovePaymentDue(data) {
       headers: { "X-CSRF-TOKEN": getCookie("csrf_access_token") }
     })
     .then((res) => {
+      setCSRFCookie(res)
       console.log(res);
       result = res
     })
