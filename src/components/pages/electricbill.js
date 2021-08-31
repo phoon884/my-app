@@ -16,7 +16,6 @@ function ElectricBill() {
     const formik = useFormik({
 
         initialValues: {
-            date: '',
             building: 'A',
             floor: '1',
             r01: '',
@@ -39,10 +38,9 @@ function ElectricBill() {
             setError(null)
             let payload = {}
             if (values && values.floor) {
-                payload.date = values.date;
                 payload.data = [];
                 for (const key in values) {
-                    if (!(key === "date" || key === "building" || key === "floor")) {
+                    if (!(key === "building" || key === "floor")) {
                         if (values[key] === "") {
                             break;
                         }
@@ -78,16 +76,6 @@ function ElectricBill() {
             <div className="card-wrapper">
                 <form name="electricbill_form" onSubmit={formik.handleSubmit} >
                     <label htmlFor="date">Electric Bill</label>
-                    <label htmlFor="date">Date</label>
-                    <input
-                        type="date"
-                        name="date"
-                        className="field"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.date}
-                        required
-                    ></input>
 
                     <label htmlFor="building">building</label>
                     <select name="building"

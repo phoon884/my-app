@@ -15,7 +15,6 @@ export default function Checkin(props) {
             first_name: "",
             last_name: "",
             DoB: "",
-            check_in_date: "",
             check_out_date:"",
             status: "Monthly",
             rent: 0,
@@ -87,18 +86,7 @@ export default function Checkin(props) {
                         required
                     ></input>
 
-                    <label htmlFor="check_in_date">Check-In Date</label>
-                    <input
-                        type="date"
-                        name="check_in_date"
-                        className="field"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.check_in_date}
-                        required
-                    ></input>
-
-                    <label htmlFor="check_in_date">Check-Out Date(optional)</label>
+                    <label htmlFor="check_out_date">Check-Out Date(optional)</label>
                     <input
                         type="date"
                         name="check_out_date"
