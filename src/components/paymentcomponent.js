@@ -1,6 +1,7 @@
 import React from 'react'
 import "./payment.css"
 import { RemovePaymentDue } from '../helper/RequestAction'
+import { useFormik } from 'formik'
 
 export default function Paymentcomponent(props) {
     const formik = useFormik({
@@ -30,7 +31,7 @@ export default function Paymentcomponent(props) {
 
             </select>
 
-            <button className="checkout-btn" onClick={() => RemovePaymentDue(room, formik.values)
+            <button className="checkout-btn" onClick={() => RemovePaymentDue(formik.values)
                 .then((res) => {
                     if (res.status === 200) {
                         window.location.reload()
