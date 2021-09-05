@@ -16,8 +16,9 @@ export default function Paymentcomponent(props) {
             <p className="content"> Amount: {props.room.amount} </p>
             <p className="content"> Name: {props.room.first_name} {props.room.last_name} </p>
             <p className="content"> Date: {props.room.date} </p>
-            <select name="floor"
-                id="floor"
+            <div className="card-wrapper">
+            <select name="paymentType"
+                id="paymentType"
                 className="field"
                 onChange={formik.handleChange}
                 value={formik.values.paymentType}
@@ -30,7 +31,7 @@ export default function Paymentcomponent(props) {
                 <option value="KBank">KBank</option>
 
             </select>
-
+            </div>
             <button className="checkout-btn" onClick={() => RemovePaymentDue(formik.values)
                 .then((res) => {
                     if (res.status === 200) {
