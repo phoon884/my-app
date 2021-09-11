@@ -13,9 +13,11 @@
   }
 
   .paymentoption{
-    height: 50%;
-    margin: 0 0 24px;
-    padding: 11px 30px 10px;
+    width: 65px;
+    height: 25px;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
     font-size: 14px;
     line-height: 24px;
     text-transform: uppercase;
