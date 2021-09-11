@@ -18,6 +18,7 @@ export default function Paymentcomponent(props) {
             <p className="content"> Date: {props.room.date} </p>
             <select name="paymentType"
                 id="paymentType"
+                className = "paymentoption"
                 onChange={formik.handleChange}
                 value={formik.values.paymentType}
                 required>
