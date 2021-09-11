@@ -13,6 +13,7 @@
   }
 
   .paymentoption{
+    height: 50%;
     margin: 0 0 24px;
     padding: 11px 30px 10px;
     font-size: 14px;
@@ -21,12 +22,10 @@
     letter-spacing: 1px;
     font-weight: 600;
     text-decoration: none;
-    color: var(--white);
     border: none;
     border-radius: 4px;
     outline: none;
     cursor: pointer;
     display: inline-block;
-    background: var(--grey-dark);
     transition: color .15s ease, background-color .15s ease;
   }
