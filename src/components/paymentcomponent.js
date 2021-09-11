@@ -12,7 +12,7 @@ export default function Paymentcomponent(props) {
     })
     return (
         <div className="container">
-            <p className="content"> RoomId: {props.roomid} </p>
+            <p className="content"> RoomId: {props.room.roomid} </p>
             <p className="content"> Amount: {props.room.amount} </p>
             <p className="content"> Name: {props.room.first_name} {props.room.last_name} </p>
             <p className="content"> Date: {props.room.date} </p>
